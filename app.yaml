@@ -2,6 +2,9 @@ runtime: nodejs16
 
 env_variables:
   NODE_ENV: 'production'
+  PORT: 8080
+  SECRET: 'full=secret'
+  MONGO_URL: 'mongodb+srv://berrets:1Z8DJMJCNkDuVENc@cluster0.splslgy.mongodb.net/berrets-db?retryWrites=true&w=majority&appName=Cluster0'
 
 handlers:
   - url: /.*
