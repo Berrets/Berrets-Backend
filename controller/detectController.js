@@ -33,5 +33,41 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({ message: 'Error', error });
     }
+  },
+
+  updateData: async (req, res) => {
+    const { id } = req.params;
+    const { fileName } = req.body;
+    try {
+      const updatedFileName = await DetectModel.findByIdAndUpdate(
+        id,
+        { fileName },
+        { new: true }
+      );
+
+      if (!updatedFileName) {
+        return res.status(404).json({ message: 'Data not found' });
+      }
+
+      return res.status(200).json({ message: 'Update successful', data: updatedFileName });
+    } catch (error) {
+      return res.status(500).json({ message: 'Error updating data', error });
+    }
+  },
+
+  deleteData: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletedData = await DetectModel.findByIdAndDelete(id);
+
+      if (!deletedData) {
+        return res.status(404).json({ message: 'Data not found' });
+      }
+
+      return res.status(200).json({ message: 'Delete successful', data: deletedData });
+    } catch (error) {
+      return res.status(500).json({ message: 'Error deleting data', error });
+    }
   }
+
 }
