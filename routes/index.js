@@ -11,6 +11,6 @@ routes.post('/register', userRegisterValidate, registerUser);
 routes.post('/login', userLoginValidate, loginUser);
 routes.get('/users', ensureAuthenticated, getUsers);
 
-routes.post('/detects', ensureAuthenticated, detectValidate, detectGrain);
+routes.post('/create-data', ensureAuthenticated, detectValidate, detectGrain);
 
 module.exports = routes;
