@@ -20,5 +20,18 @@ module.exports = {
       return res.status(500)
         .json({ message: 'Error', err });
     }
+  },
+
+  getDataById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const data = await DetectModel.findById(id);
+      if (!data) {
+        return res.status(404).json({ message: 'Data not found' });
+      }
+      return res.status(200).json({ data: data });
+    } catch (error) {
+      return res.status(500).json({ message: 'Error', error });
+    }
   }
 }
