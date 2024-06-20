@@ -1,7 +1,7 @@
 const DetectModel = require("../models/DetectModel");
 
 module.exports = {
-  detectData: async (req, res) => {
+  createData: async (req, res) => {
     const detectModel = new DetectModel(req.body);
     try {
       const response = await detectModel.save();

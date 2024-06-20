@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const detectValidate = (req, res, next) => {
+const dataValidate = (req, res, next) => {
   const schema = Joi.object({
     fileName: Joi.string().min(4).max(100).required(),
     photo: Joi.string().base64().required(),
@@ -13,5 +13,5 @@ const detectValidate = (req, res, next) => {
 }
 
 module.exports = {
-  detectValidate
+  dataValidate
 };
