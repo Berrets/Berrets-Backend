@@ -1,5 +1,5 @@
 const express = require('express');
-const { detectGrain } = require('../controller/detectController');
+const { detectData } = require('../controller/detectController');
 const { registerUser, loginUser, getEmailUser, getUsers } = require('../controller/userController');
 const { detectValidate } = require('../utils/detectValidation');
 const { userRegisterValidate, userLoginValidate, userEmailValidate } = require('../utils/userValidation');
@@ -11,6 +11,6 @@ routes.post('/register', userRegisterValidate, registerUser);
 routes.post('/login', userLoginValidate, loginUser);
 routes.get('/users', ensureAuthenticated, getUsers);
 
-routes.post('/create-data', ensureAuthenticated, detectValidate, detectGrain);
+routes.post('/create-data', ensureAuthenticated, detectValidate, detectData);
 
 module.exports = routes;

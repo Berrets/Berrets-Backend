@@ -1,9 +1,7 @@
-const UserModel = require("../models/DetectModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const DetectModel = require("../models/DetectModel");
 
 module.exports = {
-  detectGrain: async (req, res) => {
+  detectData: async (req, res) => {
     const { fileName, photo } = req.body;
     try {
       const newDetect = new DetectModel({
